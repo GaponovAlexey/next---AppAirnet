@@ -8,7 +8,6 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';;
 import ButtonAppBar from './panel';
-import s from './clientComent.module.css';
 
 const columns = [
 	{ field: 'id', headerName: 'ID', width: 90 },
@@ -43,20 +42,10 @@ const columns = [
 	},
 ];
 
-const rows = [
-	{ id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-	{ id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-	{ id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-	{ id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-	{ id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-	{ id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-	{ id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-	{ id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-	{ id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-];
+
 
 Taskone.getInitialProps = async () => {
-	const res = await fetch(`https://iakjucmhukqakhswuqgh.supabase.co/rest/v1/calls?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyNzgzMTg0OCwiZXhwIjoxOTQzNDA3ODQ4fQ.IvTqqvidDxgLV_nqYd0VFPV9p4I-h1mNsuc9tkt1daI`)
+	const res = await fetch(`https://iakjucmhukqakhswuqgh.supabase.co/rest/v1/task_comment?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyNzgzMTg0OCwiZXhwIjoxOTQzNDA3ODQ4fQ.IvTqqvidDxgLV_nqYd0VFPV9p4I-h1mNsuc9tkt1daI`)
 	const users = await res.json()
 	return { list: users };
 }
@@ -79,11 +68,11 @@ export default function Taskone({ list }) {
 						<TableRow>
 							<TableCell>Task</TableCell>
 							<TableCell align="right">id</TableCell>
-							<TableCell align="right">call</TableCell>
-							<TableCell align="right">call_start</TableCell>
-							<TableCell align="right">from</TableCell>
-							<TableCell align="right">status</TableCell>
-							<TableCell align="right">from</TableCell>
+							<TableCell align="right">task_id</TableCell>
+							<TableCell align="right">comment</TableCell>
+							<TableCell align="right">date</TableCell>
+							<TableCell align="right">is_active</TableCell>
+							<TableCell align="right">task_status_id</TableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>
@@ -93,11 +82,11 @@ export default function Taskone({ list }) {
 									{ row.id }
 								</TableCell>
 								<TableCell align="right">{ row.id }</TableCell>
-								<TableCell align="right">{ row.client_id }</TableCell>
-								<TableCell align="right">{ row.call_start }</TableCell>
-								<TableCell align="right">{ row.from }</TableCell>
-								<TableCell align="right">{ row.status }</TableCell>
-								<TableCell align="right">{ row.from }</TableCell>
+								<TableCell align="right">{ row.task_id }</TableCell>
+								<TableCell align="right">{ row.comment }</TableCell>
+								<TableCell align="right">{ row.date }</TableCell>
+								<TableCell align="right">{ row.is_active }</TableCell>
+								<TableCell align="right">{ row.task_status_id }</TableCell>
 							</TableRow>
 						)) }
 					</TableBody>

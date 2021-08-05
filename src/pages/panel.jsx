@@ -57,12 +57,11 @@ export default function ButtonAppBar() {
 						<Link href='/'><MenuItem onClick={ handleClose } >Home</MenuItem></Link>
 						<Link href='/calls' ><MenuItem onClick={ handleClose }>Calls</MenuItem></Link>
 						<Link href='/clientComent' ><MenuItem onClick={ handleClose }>Client Coment</MenuItem></Link>
-						<Link href='/tasktwo' ><MenuItem onClick={ handleClose }>Bases</MenuItem></Link>
-						<Link href='/tasktwo' ><MenuItem onClick={ handleClose }>Bases</MenuItem></Link>
-						<Link href='/tasktwo' ><MenuItem onClick={ handleClose }>Bases</MenuItem></Link>
-						<Link href='/tasktwo' ><MenuItem onClick={ handleClose }>Bases</MenuItem></Link>
-						<Link href='/tasktwo' ><MenuItem onClick={ handleClose }>Bases</MenuItem></Link>
-						<Link href='/tasktwo' ><MenuItem onClick={ handleClose }>Bases</MenuItem></Link>
+						<Link href='/clients' ><MenuItem onClick={ handleClose }>clients</MenuItem></Link>
+						<Link href='/project' ><MenuItem onClick={ handleClose }>project</MenuItem></Link>
+						<Link href='/taskComment' ><MenuItem onClick={ handleClose }>taskComment</MenuItem></Link>
+						<Link href='/tasks' ><MenuItem onClick={ handleClose }>tasks</MenuItem></Link>
+						<Link href='/taskStatus' ><MenuItem onClick={ handleClose }>taskStatus</MenuItem></Link>
 					</Menu>
 				</Toolbar>
 			</AppBar>
