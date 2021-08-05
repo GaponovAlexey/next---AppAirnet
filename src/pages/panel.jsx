@@ -45,7 +45,7 @@ export default function ButtonAppBar() {
 			<AppBar position="static">
 				<Toolbar>
 					<Button aria-controls="fade-menu" aria-haspopup="true" onClick={ handleClick }>
-						Tusk menu
+						Menu
 					</Button>
 					<Menu
 						anchorEl={ anchorEl }
@@ -54,8 +54,14 @@ export default function ButtonAppBar() {
 						onClose={ handleClose }
 						TransitionComponent={ Fade }
 					>
-						<Link href='/' ><MenuItem >Home</MenuItem></Link>
-						<Link href='/taskone' ><MenuItem onClick={ handleClose }>Call</MenuItem></Link>
+						<Link href='/'><MenuItem onClick={ handleClose } >Home</MenuItem></Link>
+						<Link href='/calls' ><MenuItem onClick={ handleClose }>Calls</MenuItem></Link>
+						<Link href='/clientComent' ><MenuItem onClick={ handleClose }>Client Coment</MenuItem></Link>
+						<Link href='/tasktwo' ><MenuItem onClick={ handleClose }>Bases</MenuItem></Link>
+						<Link href='/tasktwo' ><MenuItem onClick={ handleClose }>Bases</MenuItem></Link>
+						<Link href='/tasktwo' ><MenuItem onClick={ handleClose }>Bases</MenuItem></Link>
+						<Link href='/tasktwo' ><MenuItem onClick={ handleClose }>Bases</MenuItem></Link>
+						<Link href='/tasktwo' ><MenuItem onClick={ handleClose }>Bases</MenuItem></Link>
 						<Link href='/tasktwo' ><MenuItem onClick={ handleClose }>Bases</MenuItem></Link>
 					</Menu>
 				</Toolbar>

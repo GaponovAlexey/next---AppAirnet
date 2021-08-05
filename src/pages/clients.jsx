@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';;
 import ButtonAppBar from './panel';
-import s from './taskone.module.css';
+import s from './clientComent.module.css';
 
 const columns = [
 	{ field: 'id', headerName: 'ID', width: 90 },
@@ -68,10 +68,6 @@ const useStyles = makeStyles({
 	},
 });
 
-
-
-
-
 export default function Taskone({ list }) {
 	const classes = useStyles();
 	return (
@@ -107,7 +103,7 @@ export default function Taskone({ list }) {
 					</TableBody>
 				</Table>
 			</TableContainer>
-					{/*{JSON.stringify(list, null, 4)}*/}
+			{/*{JSON.stringify(list, null, 4)}*/ }
 
 		</>
 	);
