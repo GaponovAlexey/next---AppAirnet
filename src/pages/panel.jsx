@@ -48,7 +48,6 @@ export default function ButtonAppBar() {
 						Tusk menu
 					</Button>
 					<Menu
-						id="fade-menu"
 						anchorEl={ anchorEl }
 						keepMounted
 						open={ open }

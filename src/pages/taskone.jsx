@@ -1,5 +1,12 @@
-
-import { DataGrid } from '@material-ui/data-grid';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';;
 import ButtonAppBar from './panel';
 import s from './taskone.module.css';
 
@@ -48,21 +55,60 @@ const rows = [
 	{ id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
 ];
 
-export default function Taskone() {
+Taskone.getInitialProps = async () => {
+	const res = await fetch(`https://iakjucmhukqakhswuqgh.supabase.co/rest/v1/calls?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyNzgzMTg0OCwiZXhwIjoxOTQzNDA3ODQ4fQ.IvTqqvidDxgLV_nqYd0VFPV9p4I-h1mNsuc9tkt1daI`)
+	const users = await res.json()
+	return { list: users };
+}
+
+
+const useStyles = makeStyles({
+	table: {
+		minWidth: 650,
+	},
+});
+
+
+
+
+
+export default function Taskone({ list }) {
+	const classes = useStyles();
 	return (
 		<>
 			<ButtonAppBar />
-				<div className={ s.table } style={ { height: 400, width: '100%' } }>
-					<DataGrid
-						rows={ rows }
-						columns={ columns }
-						pageSize={ 5 }
-						checkboxSelection
-						disableSelectionOnClick
+			<TableContainer component={ Paper }>
+				<Table size="small" aria-label="a dense table">
+					<TableHead>
+						<TableRow>
+							<TableCell>Task</TableCell>
+							<TableCell align="right">id</TableCell>
+							<TableCell align="right">call</TableCell>
+							<TableCell align="right">call_start</TableCell>
+							<TableCell align="right">from</TableCell>
+							<TableCell align="right">status</TableCell>
+							<TableCell align="right">from</TableCell>
+						</TableRow>
+					</TableHead>
+					<TableBody>
+						{ list.map((row) => (
+							<TableRow key={ row.id }>
+								<TableCell component="th" scope="row">
+									{ row.id }
+								</TableCell>
+								<TableCell align="right">{ row.id }</TableCell>
+								<TableCell align="right">{ row.client_id }</TableCell>
+								<TableCell align="right">{ row.call_start }</TableCell>
+								<TableCell align="right">{ row.from }</TableCell>
+								<TableCell align="right">{ row.status }</TableCell>
+								<TableCell align="right">{ row.from }</TableCell>
+							</TableRow>
+						)) }
+					</TableBody>
+				</Table>
+			</TableContainer>
+					{/*{JSON.stringify(list, null, 4)}*/}
 
-					/>
-				</div>
-			
 		</>
 	);
 }
